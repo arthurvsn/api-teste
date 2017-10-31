@@ -22,6 +22,9 @@ app.use('/', router);
 app.listen(port);
 console.log('API funcionando!');
 
+router.get('/clientes', (req, res) => {
+    execSQLQuery('SELECT * FROM edit', res);
+})
 function execSQLQuery(sqlQry, res) {
     const connection = mysql.createConnection({
         host: 'localhost',
